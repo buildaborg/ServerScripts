@@ -1,0 +1,15 @@
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000 # Replace with your User ID
+      - PGID=1000 # Replace with your Group ID
+      - TZ=America/New_York # Set your local Timezone
+    volumes:
+      - ./config:/config # Radarr's settings and database
+      - /mnt/storage/movies:/movies # Your movie library path
+      - /mnt/storage/downloads:/downloads # Your download client's path
+    ports:
+      - 7878:7878
+    restart: unless-stopped
