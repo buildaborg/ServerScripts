@@ -1,3 +1,6 @@
+docker stop sonarr
+docker rm -f sonarr
+docker pull lscr.io/linuxserver/sonarr
 docker run -d \
   --name=sonarr \
   -e PUID=1000 \
