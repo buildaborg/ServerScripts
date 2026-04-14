@@ -8,7 +8,7 @@ docker run -d \
   -e TZ=America/New_York \
   -p 8989:8989 \
   -v /path/to/data:/config \
-  -v /path/to/tvseries:/tv \
-  -v /path/to/downloads:/downloads \
+  -v /mnt/storage/tvseries:/tv \
+  -v /mnt/storage/downloads:/downloads \
   --restart unless-stopped \
   lscr.io/linuxserver/sonarr:latest
