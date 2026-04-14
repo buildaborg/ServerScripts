@@ -5,7 +5,7 @@ docker run -d \
   --name=sonarr \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Etc/UTC \
+  -e TZ=America/New_York \
   -p 8989:8989 \
   -v /path/to/data:/config \
   -v /path/to/tvseries:/tv \
