@@ -7,8 +7,8 @@ docker run -d \
   -e PGID=1000 \
   -e TZ=America/New_York \
   -p 8989:8989 \
-  -v /path/to/data:/config \
-  -v /mnt/storage/tvseries:/tv \
+  -v /mnt/storage/data:/config \
+  -v /mnt/storage/TV:/tv \
   -v /mnt/storage/downloads:/downloads \
   --restart unless-stopped \
   lscr.io/linuxserver/sonarr:latest
