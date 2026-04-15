@@ -9,6 +9,6 @@ docker run -d \
   -p 8080:8080 \
   -v /home/steve/dockerbinds/sabnzbd:/config \
   -v /mnt/storage/downloads:/downloads \
-  -v /mnt/storage/incomplete:/incomplete-downloads
+  -v /mnt/storage/incomplete:/incomplete-downloads \
   --restart unless-stopped \
   lscr.io/linuxserver/sabnzbd:latest
