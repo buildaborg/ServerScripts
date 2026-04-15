@@ -1,15 +1,14 @@
-services:
-  sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:latest
-    container_name: sabnzbd
-    environment:
-      - PUID=1000  # Replace with your User ID
-      - PGID=1000  # Replace with your Group ID
-      - TZ=Etc/UTC # Replace with your timezone
-    volumes:
-      - /path/to/sabnzbd/config:/config
-      - /path/to/downloads:/downloads
-      - /path/to/incomplete/downloads:/incomplete-downloads # Optional
-    ports:
-      - 8080:8080
-    restart: unless-stopped
+docker stop sabnzbd
+docker rm -f sabnzbd
+docker pull lscr.io/linuxserver/sabnzbd
+docker run -d \
+  --name=sabnzbd \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/New_York \
+  -p 8080:8080 \
+  -v /home/steve/dockerbinds/sabnzbd:/config \
+  -v /mnt/storage/downloads:/downloads \
+  -v /mnt/storage/incomplete:/incomplete-downloads
+  --restart unless-stopped \
+  lscr.io/linuxserver/sabnzbd:latest
