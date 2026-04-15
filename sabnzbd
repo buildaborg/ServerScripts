@@ -1,0 +1,15 @@
+services:
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    environment:
+      - PUID=1000  # Replace with your User ID
+      - PGID=1000  # Replace with your Group ID
+      - TZ=Etc/UTC # Replace with your timezone
+    volumes:
+      - /path/to/sabnzbd/config:/config
+      - /path/to/downloads:/downloads
+      - /path/to/incomplete/downloads:/incomplete-downloads # Optional
+    ports:
+      - 8080:8080
+    restart: unless-stopped
