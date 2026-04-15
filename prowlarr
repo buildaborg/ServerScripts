@@ -1,3 +1,6 @@
+docker stop prowlarr
+docker rm -f prowlarr
+docker pull lscr.io/linuxserver/prowlarr
 docker run -d \
   --name=prowlarr \
   -e PUID=1000 \
