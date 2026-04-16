@@ -4,6 +4,8 @@ docker pull ghcr.io/seerr-team/seerr
 docker run -d \
   --name seerr \
   --init \
+  -e PUID=1000 \
+  -e PGID=1000 \
   -e LOG_LEVEL=debug \
   -e TZ=Asia/Tashkent \
   -e PORT=5055 \
