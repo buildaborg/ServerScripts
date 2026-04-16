@@ -1,3 +1,6 @@
+docker stop seerr
+docker rm -f seerr
+docker pull ghcr.io/seerr-team/seerr
 docker run -d \
   --name seerr \
   --init \
