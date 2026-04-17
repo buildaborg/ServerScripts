@@ -1,6 +1,6 @@
-docker stop transmission \
-docker rm -f transmission \
-docker pull lscr.io/linuxserver/transmission \
+# docker stop transmission \
+# docker rm -f transmission \
+# docker pull lscr.io/linuxserver/transmission \
 docker run -d \
   --name=transmission \
   -e PUID=1000 \
