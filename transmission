@@ -5,7 +5,7 @@ docker run -d \
   --name=transmission \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Etc/UTC \
+  -e TZ=America/New_York \
   -p 9091:9091 \
   -p 51413:51413 \
   -p 51413:51413/udp \
