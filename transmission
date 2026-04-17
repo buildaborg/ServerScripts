@@ -1,0 +1,18 @@
+docker stop transmission
+docker rm -f transmission
+docker pull lscr.io/linuxserver/transmission
+docker run -d \
+  --name=transmission \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/New_York \
+  -p 9090:9090 \
+  -p 51413:51413
+  -p 51413:51413/udp
+  -v /home/steve/dockerbinds/transmission:/config \
+  -v /mnt/storage/downloads:/downloads \
+  -v /mnt/storage/watch:/watch \
+  --restart unless-stopped \
+  lscr.io/linuxserver/transmission:latest
+
+
