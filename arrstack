@@ -1,1 +1,58 @@
+docker stop prowlarr
+docker rm -f prowlarr
+docker pull lscr.io/linuxserver/prowlarr
+docker run -d \
+  --name=prowlarr \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Etc/UTC \
+  -p 9696:9696 \
+  -v /home/dockerbinds/prowlarr/data:/config \
+  --restart unless-stopped \
+  lscr.io/linuxserver/prowlarr:latest
 
+docker stop sonarr
+docker rm -f sonarr
+docker pull lscr.io/linuxserver/sonarr
+docker run -d \
+  --name=sonarr \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/New_York \
+  -p 8989:8989 \
+  -v /mnt/storage/data:/config \
+  -v /mnt/storage/TV:/tv \
+  -v /mnt/storage/downloads:/downloads \
+  --restart unless-stopped \
+  lscr.io/linuxserver/sonarr:latest
+
+docker stop radarr
+docker rm -f radarr
+docker pull lscr.io/linuxserver/radarr
+docker run -d \
+  --name=radarr \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/New_York \
+  -v ./config:/config \
+  -v /mnt/storage/movies:/movies \
+  -v /mnt/storage/downloads:/downloads \
+  -p 7878:7878 \
+  --restart unless-stopped \
+  lscr.io/linuxserver/radarr:latest
+
+docker stop seerr
+docker rm -f seerr
+docker pull ghcr.io/seerr-team/seerr
+docker run -d \
+  --name seerr \
+  --init \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e LOG_LEVEL=debug \
+  -e TZ=America/New_York \
+  -e PORT=5055 \
+  -p 5055:5055 \
+  -v /home/steve/data:/app/config \
+  --restart unless-stopped \
+  ghcr.io/seerr-team/seerr:latest
