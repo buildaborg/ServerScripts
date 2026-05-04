@@ -1,0 +1,31 @@
+docker stop sabnzbd
+docker rm -f sabnzbd
+docker pull lscr.io/linuxserver/sabnzbd
+docker run -d \
+  --name=sabnzbd \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/New_York \
+  -p 8080:8080 \
+  -v /home/steve/dockerbinds/sabnzbd:/config \
+  -v /mnt/storage/downloads:/downloads \
+  -v /mnt/storage/incomplete:/incomplete-downloads \
+  --restart unless-stopped \
+  lscr.io/linuxserver/sabnzbd:latest
+
+docker stop transmission \
+docker rm -f transmission \
+docker pull lscr.io/linuxserver/transmission \
+docker run -d \
+  --name=transmission \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/New_York \
+  -p 9091:9091 \
+  -p 51413:51413 \
+  -p 51413:51413/udp \
+  -v /home/steve/dockerbinds/transmission:/config \
+  -v /mnt/storage/downloads:/downloads \
+  -v /mnt/storage/watch:/watch \
+  --restart unless-stopped \
+  lscr.io/linuxserver/transmission:latest
