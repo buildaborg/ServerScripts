@@ -1,1 +1,15 @@
 
+docker run -d \
+  --name tdarr \
+  -p 8265:8265 \
+  -p 8266:8266 \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ="America/New_York" \
+  -e serverIP="0.0.0.0" \
+  -v "/home/dockerbinds/tdarr/configs:/app/configs" \
+  -v "/home/dockerbinds/tdarr/logs:/app/logs" \
+  -v "/mnt/storage/downloads:/media" \
+  -v "/mnt/storage/temp:/temp" \
+  --restart unless-stopped \
+  ghcr.io/haveagitgat/tdarr
