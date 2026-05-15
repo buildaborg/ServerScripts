@@ -1,4 +1,6 @@
-
+docker stop tdarr
+docker rm -f tdarr
+docker pull ghcr.io/haveagitgat/tdarr
 docker run -d \
   --name tdarr \
   -p 8265:8265 \
