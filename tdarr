@@ -14,4 +14,4 @@ docker run -d \
   -v "/mnt/storage/downloads:/media" \
   -v "/mnt/storage/temp:/temp" \
   --restart unless-stopped \
-  ghcr.io/haveagitgat/tdarr
+  ghcr.io/haveagitgat/tdarr:latest
