@@ -32,7 +32,7 @@ docker run -d \
 
 docker stop plex \
 docker rm -f plex \
-docker pull lscr.io/linuxserver/plex:latest \
+docker pull lscr.io/linuxserver/plex
 docker run -d \
   --name=plex \
   --net=host \
