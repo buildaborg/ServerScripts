@@ -10,6 +10,6 @@ docker run -d \
   -e TZ=America/New_York \
   -e PORT=5055 \
   -p 5055:5055 \
-  -v /home/steve/data:/app/config \
+  -v /home/steve/dockerbinds/seerr:/app/config \
   --restart unless-stopped \
   ghcr.io/seerr-team/seerr:latest
