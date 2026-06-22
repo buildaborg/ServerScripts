@@ -29,3 +29,20 @@ docker run -d \
   -v /mnt/storage/watch:/watch \
   --restart unless-stopped \
   lscr.io/linuxserver/transmission:latest
+
+docker stop plex \
+docker rm -f plex \
+docker pull lscr.io/linuxserver/plex:latest \
+docker run -d \
+  --name=plex \
+  --net=host \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=America/New_York \
+  -e VERSION=docker \
+  -e PLEX_CLAIM=1YN4T8igpDaEcqGUBwjE \
+  -v /home/steve/dockerbinds/plex:/config \
+  -v /mnt/storage/movies:/movies \
+  -v /mnt/storage/TV:/tv \
+  --restart unless-stopped \
+  lscr.io/linuxserver/plex:latest
