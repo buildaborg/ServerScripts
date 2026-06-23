@@ -9,6 +9,7 @@ docker run -d \
   -e TZ=America/New_York \
   -e VERSION=docker \
   -e PLEX_CLAIM=1YN4T8igpDaEcqGUBwjE \
+  -p 32400:32400/tcp \
   -v /home/steve/dockerbinds/plex:/config \
   -v /mnt/storage/movies:/movies \
   -v /mnt/storage/TV:/tv \
