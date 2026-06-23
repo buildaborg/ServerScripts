@@ -1,5 +1,5 @@
 docker stop plex \
-docker rm -f plex \
+docker rm plex \
 docker pull lscr.io/linuxserver/plex
 docker run -d \
   --name=plex \
